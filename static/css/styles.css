@@ -1,0 +1,211 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styles */
+.login-container, .dashboard-container, .driver-container, .fleet-container, .assignment-container, .billing-container, .spares-container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px; /* Added rounded corners */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation for all containers */
+}
+
+/* Heading Styles */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px; /* Added spacing below the heading */
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: bold; /* Added bold labels for better readability */
+    color: #555; /* Darker text color for better contrast */
+}
+
+input, button {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc; /* Added border to inputs */
+    border-radius: 5px; /* Rounded corners for inputs and buttons */
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+button:hover {
+    background-color: #218838;
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Menu Styles */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.menu a:hover {
+    color: #0056b3; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* Card Styles (For Dashboard) */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Lift card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Button Styles */
+.animated-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.animated-button:hover {
+    background-color: #218838;
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+/* Loading Spinner (Optional) */
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #28a745;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Background Animation (Optional) */
+body {
+    background: linear-gradient(-45deg, #f4f4f4, #e0e0f0, #f4f4f4, #e0e0f0);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Driver Form Specific Styles */
+.driver-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.driver-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.driver-container label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.driver-container input {
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.driver-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.driver-container button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
