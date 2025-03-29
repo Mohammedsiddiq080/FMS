@@ -1,82 +1,88 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
     margin: 0;
     padding: 0;
+    color: #2d3436;
+    animation: gradientAnimation 8s infinite alternate;
+}
+
+@keyframes gradientAnimation {
+    from {
+        background: linear-gradient(135deg, #74b9ff, #0984e3);
+    }
+    to {
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    }
 }
 
 /* Container Styles */
-.login-container, .dashboard-container, .driver-container, .fleet-container, .assignment-container, .billing-container, .spares-container {
-    width: 50%;
+.container {
+    width: 60%;
     margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px; /* Added rounded corners */
-    animation: fadeIn 1s ease-in-out; /* Fade-in animation for all containers */
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Heading Styles */
 h1 {
     text-align: center;
-    color: #333;
-    margin-bottom: 20px; /* Added spacing below the heading */
+    font-size: 2.5rem;
+    color: #6c5ce7;
 }
 
 /* Form Styles */
 form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
 label {
-    margin-top: 10px;
-    font-weight: bold; /* Added bold labels for better readability */
-    color: #555; /* Darker text color for better contrast */
+    font-weight: 600;
 }
 
 input, button {
-    margin-top: 5px;
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
-    border: 1px solid #ccc; /* Added border to inputs */
-    border-radius: 5px; /* Rounded corners for inputs and buttons */
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+input {
+    background-color: #dfe6e9;
+}
+
+input:focus {
+    background-color: #b2bec3;
+    outline: none;
 }
 
 button {
-    background-color: #28a745;
+    background-color: #00cec9;
     color: white;
-    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background-color: #218838;
-    transform: scale(1.05); /* Slight scale effect on hover */
+    background-color: #0984e3;
+    transform: scale(1.05);
 }
 
-/* Menu Styles */
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.menu a {
-    text-decoration: none;
-    color: #007bff;
-    font-size: 18px;
-    transition: color 0.3s ease; /* Smooth color transition on hover */
-}
-
-.menu a:hover {
-    color: #0056b3; /* Darker blue on hover */
-    text-decoration: underline;
-}
-
-/* Card Styles (For Dashboard) */
+/* Card Animation for Dashboard */
 .cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -85,127 +91,71 @@ button:hover {
 }
 
 .card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 220px;
     padding: 20px;
-    width: 250px;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    animation: bounceIn 1s ease-in-out;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-10px); /* Lift card on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-10px);
 }
 
-.card h2 {
-    font-size: 1.5rem;
-    color: #28a745;
-    margin-bottom: 10px;
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
-.card p {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 20px;
-}
-
-/* Button Styles */
-.animated-button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
-}
-
-.animated-button:hover {
-    background-color: #218838;
-    transform: scale(1.05); /* Slight scale effect on hover */
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
-}
-
-/* Loading Spinner (Optional) */
+/* Loader Animation */
 .loader {
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #28a745;
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #0984e3;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     animation: spin 1s linear infinite;
-    margin: 20px auto;
-    display: none; /* Hidden by default */
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-/* Background Animation (Optional) */
-body {
-    background: linear-gradient(-45deg, #f4f4f4, #e0e0f0, #f4f4f4, #e0e0f0);
-    background-size: 400% 400%;
-    animation: gradientBG 10s ease infinite;
+/* Menu Navigation */
+.menu a {
+    text-decoration: none;
+    color: #00cec9;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: color 0.3s;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.menu a:hover {
+    color: #6c5ce7;
 }
 
-/* Driver Form Specific Styles */
+/* Driver-Specific Styles */
+.driver-container {
+    background-color: rgba(240, 240, 240, 0.9);
+    border: 2px solid #74b9ff;
+    animation: fadeIn 1s ease-in-out;
+}
+
 .driver-container h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.driver-container form {
-    display: flex;
-    flex-direction: column;
-}
-
-.driver-container label {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #555;
-}
-
-.driver-container input {
-    margin-top: 5px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    color: #00cec9;
 }
 
 .driver-container button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    background-color: #6c5ce7;
 }
 
 .driver-container button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
+    background-color: #a29bfe;
+    transform: scale(1.1);
 }

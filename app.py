@@ -5,21 +5,24 @@ app = Flask(__name__)
 
 # MongoDB connection
 client = MongoClient('mongodb://localhost:27017/')
-db = client['fleet_management']
+db = client['FleetMangementSystem']
 drivers_collection = db['drivers']
 fleet_collection = db['fleet']
 spares_collection = db['spares']
-assignments_collection = db['assignments']
+assignments_collection = db['assignment']
 billing_collection = db['billing']
 
+# Home Route
 @app.route('/')
 def index():
     return render_template('index.html')
 
+# Dashboard Route
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
 
+# Driver Route
 @app.route('/driver', methods=['GET', 'POST'])
 def driver():
     if request.method == 'POST':
@@ -30,9 +33,10 @@ def driver():
             'license_number': request.form['license_number']
         }
         drivers_collection.insert_one(driver_data)
-        return jsonify({"message": "Driver added successfully!"}), 201
+        return jsonify({"message": "Driver added successfully!"})
     return render_template('driver.html')
 
+# Fleet Route
 @app.route('/fleet', methods=['GET', 'POST'])
 def fleet():
     if request.method == 'POST':
@@ -44,9 +48,10 @@ def fleet():
             'mileage': request.form['mileage']
         }
         fleet_collection.insert_one(fleet_data)
-        return jsonify({"message": "Fleet details added successfully!"}), 201
+        return jsonify({"message": "Fleet details added successfully!"})
     return render_template('fleet.html')
 
+# Assignment Route
 @app.route('/assignment', methods=['GET', 'POST'])
 def assignment():
     if request.method == 'POST':
@@ -58,9 +63,10 @@ def assignment():
             'end_date': request.form['end_date']
         }
         assignments_collection.insert_one(assignment_data)
-        return jsonify({"message": "Assignment added successfully!"}), 201
+        return jsonify({"message": "Assignment added successfully!"})
     return render_template('assignment.html')
 
+# Billing Route
 @app.route('/billing', methods=['GET', 'POST'])
 def billing():
     if request.method == 'POST':
@@ -74,9 +80,10 @@ def billing():
             'gst': request.form['gst']
         }
         billing_collection.insert_one(billing_data)
-        return jsonify({"message": "Billing record added successfully!"}), 201
+        return jsonify({"message": "Billing record added successfully!"})
     return render_template('billing.html')
 
+# Spares Route
 @app.route('/spares', methods=['GET', 'POST'])
 def spares():
     if request.method == 'POST':
@@ -87,7 +94,7 @@ def spares():
             'quantity': request.form['quantity']
         }
         spares_collection.insert_one(spares_data)
-        return jsonify({"message": "Spare part added successfully!"}), 201
+        return jsonify({"message": "Spare part added successfully!"})
     return render_template('spares.html')
 
 if __name__ == '__main__':
