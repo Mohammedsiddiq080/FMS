@@ -12,27 +12,30 @@
         <div class="cards-container">
             <div class="card fade-in">
                 <h2>Drivers</h2>
-                <p>Manage driver details and licenses.</p>
+                <p>Total: {{ stats.drivers_count }}</p>
+                <p>Available: {{ stats.drivers_available }}</p>
                 <a href="/driver" class="animated-button">Go to Drivers</a>
             </div>
             <div class="card fade-in">
                 <h2>Fleet</h2>
-                <p>View and manage your vehicle fleet.</p>
+                <p>Total: {{ stats.fleet_count }}</p>
+                <p>In Use: {{ stats.fleet_in_use }}</p>
+                <p>Utilization: {{ stats.fleet_utilization }}%</p>
                 <a href="/fleet" class="animated-button">Go to Fleet</a>
             </div>
             <div class="card fade-in">
                 <h2>Assignments</h2>
-                <p>Assign vehicles to companies.</p>
+                <p>Active: {{ stats.assignments_count }}</p>
                 <a href="/assignment" class="animated-button">Go to Assignments</a>
             </div>
             <div class="card fade-in">
                 <h2>Billing</h2>
-                <p>Manage billing and invoices.</p>
+                <p>Records: {{ stats.billing_count }}</p>
                 <a href="/billing" class="animated-button">Go to Billing</a>
             </div>
             <div class="card fade-in">
                 <h2>Spares</h2>
-                <p>Track spare parts and inventory.</p>
+                <p>Inventory: {{ stats.spares_count }} items</p>
                 <a href="/spares" class="animated-button">Go to Spares</a>
             </div>
         </div>

@@ -1,88 +1,103 @@
 /* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #2d3436, #636e72, #2d3436, #636e72);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     margin: 0;
     padding: 0;
     color: #2d3436;
-    animation: gradientAnimation 8s infinite alternate;
-}
-
-@keyframes gradientAnimation {
-    from {
-        background: linear-gradient(135deg, #74b9ff, #0984e3);
-    }
-    to {
-        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-    }
 }
 
 /* Container Styles */
-.container {
-    width: 60%;
+.login-container, .dashboard-container, .driver-container, .fleet-container, 
+.assignment-container, .billing-container, .spares-container {
+    width: 50%;
     margin: 50px auto;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #dfe6e9;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 /* Heading Styles */
 h1 {
     text-align: center;
-    font-size: 2.5rem;
-    color: #6c5ce7;
+    color: #0984e3;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 /* Form Styles */
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
 label {
-    font-weight: 600;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2d3436;
 }
 
 input, button {
+    margin-top: 5px;
     padding: 12px;
     font-size: 16px;
-    border: none;
+    border: 1px solid #b2bec3;
     border-radius: 8px;
-    transition: 0.3s;
 }
 
-input {
+input[readonly] {
     background-color: #dfe6e9;
+    cursor: not-allowed;
 }
 
-input:focus {
-    background-color: #b2bec3;
-    outline: none;
+.calculation-field {
+    font-weight: bold;
+    color: #2d3436;
 }
 
 button {
-    background-color: #00cec9;
+    background-color: #0984e3;
     color: white;
+    border: none;
     cursor: pointer;
-    font-weight: bold;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+    border-radius: 25px;
 }
 
 button:hover {
-    background-color: #0984e3;
+    background-color: #74b9ff;
     transform: scale(1.05);
 }
 
-/* Card Animation for Dashboard */
+/* Menu Styles */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #2d3436;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.menu a {
+    text-decoration: none;
+    color: #dfe6e9;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #74b9ff;
+    text-decoration: underline;
+}
+
+/* Card Styles (For Dashboard) */
 .cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -91,71 +106,97 @@ button:hover {
 }
 
 .card {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    width: 220px;
+    background-color: #ffffff;
+    border-left: 5px solid #0984e3;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     padding: 20px;
-    text-align: center;
-    animation: bounceIn 1s ease-in-out;
-    cursor: pointer;
-    transition: transform 0.3s;
+    width: 250px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes bounceIn {
-    0% { transform: scale(0.8); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+.card h2 {
+    font-size: 1.6rem;
+    color: #0984e3;
+    margin-bottom: 10px;
 }
 
-/* Loader Animation */
-.loader {
-    border: 8px solid rgba(0, 0, 0, 0.1);
-    border-top: 8px solid #0984e3;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
+.card p {
+    font-size: 1rem;
+    color: #636e72;
+    margin-bottom: 5px;
 }
 
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-/* Menu Navigation */
-.menu a {
+/* Button Styles */
+.animated-button {
+    background-color: #00b894;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
     text-decoration: none;
-    color: #00cec9;
-    font-size: 18px;
-    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     display: inline-block;
-    transition: color 0.3s;
+    margin-top: 15px;
 }
 
-.menu a:hover {
-    color: #6c5ce7;
+.animated-button:hover {
+    background-color: #55efc4;
+    transform: scale(1.05);
 }
 
-/* Driver-Specific Styles */
-.driver-container {
-    background-color: rgba(240, 240, 240, 0.9);
-    border: 2px solid #74b9ff;
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
     animation: fadeIn 1s ease-in-out;
 }
 
-.driver-container h1 {
-    color: #00cec9;
+/* Loading Spinner (Optional) */
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #0984e3;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
 }
 
-.driver-container button {
-    background-color: #6c5ce7;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-.driver-container button:hover {
-    background-color: #a29bfe;
-    transform: scale(1.1);
+/* Background Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container, .dashboard-container, .driver-container, 
+    .fleet-container, .assignment-container, .billing-container, 
+    .spares-container {
+        width: 90%;
+    }
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90%;
+    }
 }
